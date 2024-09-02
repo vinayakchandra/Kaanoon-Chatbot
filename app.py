@@ -1,10 +1,13 @@
+# from dotenv import load_dotenv
 import streamlit as st
-from dotenv import load_dotenv
 from langchain.chains.conversational_retrieval.base import ConversationalRetrievalChain
 from langchain_community.embeddings import GooglePalmEmbeddings
 from langchain_google_genai import GoogleGenerativeAI
 from langchain.vectorstores import Chroma
 from langchain.memory import ConversationBufferMemory
+
+st.secrets['GOOGLE_API_KEY']
+
 
 def handle_user_input(user_question):
     persist_directory = "DB/chroma"
@@ -32,7 +35,7 @@ def handle_user_input(user_question):
 
 
 def main():
-    load_dotenv()
+    # load_dotenv()
     st.set_page_config(page_title="Kaanoon ChatBot", layout="wide", page_icon=":books:")
 
     if "conversation" not in st.session_state:
