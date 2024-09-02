@@ -1,4 +1,4 @@
-# __import__('pysqlite3')
+__import__('pysqlite3')
 from dotenv import load_dotenv
 import streamlit as st
 from langchain.chains.conversational_retrieval.base import ConversationalRetrievalChain
@@ -6,9 +6,9 @@ from langchain_community.embeddings import GooglePalmEmbeddings
 from langchain_google_genai import GoogleGenerativeAI
 from langchain.vectorstores import Chroma
 from langchain.memory import ConversationBufferMemory
-# import sys
-#
-# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+import sys
+
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 
 def handle_user_input(user_question):
@@ -38,7 +38,7 @@ def handle_user_input(user_question):
 
 def main():
     load_dotenv()
-    st.set_page_config(page_title="Kaanoon ChatBot", layout="wide", page_icon=":books:")
+    st.set_page_config(page_title="Kaanoon ChatBot", page_icon=":books:")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
