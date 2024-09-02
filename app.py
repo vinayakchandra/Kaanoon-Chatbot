@@ -38,7 +38,7 @@ def handle_user_input(user_question):
 
 def main():
     load_dotenv()
-    st.set_page_config(page_title="Kaanoon ChatBot", page_icon=":books:")
+    st.set_page_config(page_title="Kaanoon ChatBot", layout="wide", page_icon=":books:")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
