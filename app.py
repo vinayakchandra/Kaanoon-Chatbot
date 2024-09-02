@@ -1,3 +1,4 @@
+__import__('pysqlite3')
 from dotenv import load_dotenv
 import streamlit as st
 from langchain.chains.conversational_retrieval.base import ConversationalRetrievalChain
@@ -5,6 +6,9 @@ from langchain_community.embeddings import GooglePalmEmbeddings
 from langchain_google_genai import GoogleGenerativeAI
 from langchain.vectorstores import Chroma
 from langchain.memory import ConversationBufferMemory
+import sys
+
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 
 def handle_user_input(user_question):
