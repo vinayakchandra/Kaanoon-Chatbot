@@ -3,3 +3,4 @@ streamlit
 langchain-community
 langchain-google-genai
 python-dotenv
+chromadb
